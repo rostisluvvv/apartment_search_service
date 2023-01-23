@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная :: Доска Объявлений</title>
+</head>
+<body>
+  <h1>Объявления</h1>
+  {% for apart in aparts %}
+  <div>
+    <h2>{{ apart.title }}</h2>
+    <p>{{ apart.content }}</p>
+    <p>{{ apart.address }}</p>
+    <p>Площадь: {{ apart.apartment_area }} Кв.М.</p>
+    <p>Цена: {{ apart.price }} /Месяц </p>
+    <p>Опубликовано: {{ apart.published|date:"d.m.Y H:i:s" }}</p>
+  </div>
+  <hr>
+  {% endfor %}
+</body>
+</html>
