@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Главная :: Доска Объявлений</title>
+  <title>{{ curent_rubric.name }}</title>
 </head>
 <body>
 <h1>Объявления</h1>
+<h2>Категория: {{ curent_rubric.name }}</h2>
+
 
 <div>
-  <a href="{% url 'main_page:index' %}">Главная</a>
+  <a href="/main_page/">Главная</a>
   {% for rubric in rubrics %}
-  <a href="{% url 'main_page:by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-{% endfor %}
+  <a href="/main_page/{{ rubric.pk }}/">{{ rubric.name }}</a>
+  {% endfor %}
 </div>
+
 
 {% for apart in aparts %}
 <div>
@@ -22,11 +25,8 @@
   <p>Площадь: {{ apart.apartment_area }} Кв.М.</p>
   <p>Цена: {{ apart.price }} /Месяц </p>
   <p>Опубликовано: {{ apart.published|date:"d.m.Y H:i:s" }}</p>
-  <p>Категория: {{ curent_rubric.name }}</p>
-
 </div>
 <hr>
 {% endfor %}
-
 </body>
 </html>
