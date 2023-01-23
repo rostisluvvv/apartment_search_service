@@ -1,0 +1,27 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+    <div class="container">
+      <a class="navbar-brand" href=" {% url 'main_page:index' %} ">
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span style="color:blue">ЦИАН
+      </a>
+
+      <a class="navbar-brand" href=" {% url 'main_page:add' %} ">
+
+        <span style="color:blue">ДОБАВИТЬ</span>
+      </a>
+
+      {% for rubric in rubrics %}
+      <a class="navbar-brand" href=" {% url 'main_page:by_rubric' rubric.pk %} ">
+
+        <span style="color:blue">{{ rubric.name }}</span>
+      </a>
+
+      {% endfor %}
+
+
+    </div>
+  </nav>
+</header>
+

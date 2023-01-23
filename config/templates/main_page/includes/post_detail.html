@@ -1,0 +1,34 @@
+<article>
+  <ul>
+    <li>
+      <h3>{{ apart.title }}</h3>
+    </li>
+
+
+    <p>
+    {{ apart.content }}
+  </p>
+    <li>
+      {{ apart.address }}
+    </li>
+
+
+    <li>
+      Площадь: {{ apart.apartment_area }} Кв.М.
+    </li>
+    <li>
+    Цена: {{ apart.price }} RUB
+  </li>
+    <li>
+      Дата публикации: {{ apart.published|date:"d.m.Y H:i:s" }}
+    </li>
+  </ul>
+
+
+
+
+</article>
+
+
+
+

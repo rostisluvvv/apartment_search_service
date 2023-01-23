@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Главная :: Доска Объявлений</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+  Главная :: Доска Объявлений
+
+{% endblock %}
+
+
+{% block content %}
 <h1>Объявления</h1>
 
+
+<body>
 <div>
-  <a href="{% url 'main_page:index' %}">Главная</a>
-  <a href="{% url 'main_page:add' %}">Добавить</a>
-  {% for rubric in rubrics %}
-  <a href="{% url 'main_page:by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-{% endfor %}
+
+
 </div>
 
 {% for apart in aparts %}
-<div>
-  <h2>{{ apart.title }}</h2>
-  <p>{{ apart.content }}</p>
-  <p>{{ apart.address }}</p>
-  <p>Площадь: {{ apart.apartment_area }} Кв.М.</p>
-  <p>Цена: {{ apart.price }} RUB </p>
-  <p>Опубликовано: {{ apart.published|date:"d.m.Y H:i:s" }}</p>
-  <p>Категория: {{ curent_rubric.name }}</p>
+{% include 'main_page/includes/post_detail.html' %}
 
-</div>
+{% if apart.by_rubric %}
+<a href="{% url 'main_page:by_rubric' rubric.pk %}">все записи группы</a>
+{% endif %}
+
+{% if not forloop.last %}
 <hr>
+{% endif %}
+
+
 {% endfor %}
+{% endblock %}
 
 </body>
 </html>
