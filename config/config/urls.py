@@ -1,10 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from posts.views import index
+
 
 
 urlpatterns = [
-    path('main_page/', index),
+    path('main_page/', include('main_page.urls')),
     path('admin/', admin.site.urls),
 ]
