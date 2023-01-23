@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавление Объявлений</title>
+</head>
+<body>
+
+<div>
+  <a href="{% url 'main_page:index' %}">Главная</a>
+  {% for rubric in rubrics %}
+  <a href="{% url 'main_page:by_rubric' rubric.pk %}">{{ rubric.neme }}</a>
+  {% endfor %}
+</div>
+
+<form class="form-horizontal form_middle" enctype='multipart/form-data' method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Добавить" >
+</form>
+
+</body>
+</html>

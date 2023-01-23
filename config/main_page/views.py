@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
 from .models import ApartmentInfo, Rubric
+from .forms import ApartmentInfoForm
 
 
 def index(request):
@@ -24,3 +26,14 @@ def by_rubric(request, rubric_id):
     }
 
     return render(request, 'main_page/by_rubric.html', context)
+
+
+class ApartmentInfoCreateView(CreateView):
+    template_name = 'main_page/create.html'
+    form_class = ApartmentInfoForm
+    success_url = reverse_lazy('main_page:index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
