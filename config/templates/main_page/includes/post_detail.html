@@ -5,9 +5,6 @@
     </li>
 
 
-    <p>
-    {{ apart.content }}
-  </p>
     <li>
       {{ apart.address }}
     </li>
@@ -17,16 +14,21 @@
       Площадь: {{ apart.apartment_area }} Кв.М.
     </li>
     <li>
-    Цена: {{ apart.price }} RUB
-  </li>
+      Цена: {{ apart.price }} RUB
+    </li>
     <li>
       Дата публикации: {{ apart.published|date:"d.m.Y H:i:s" }}
     </li>
+
+    <p>
+      <img src="/main_page{{ apart.photo.url }}" width="150px" >
+
+    </p>
+
+    <p>
+      {{ apart.content }}
+    </p>
   </ul>
-
-
-
-
 </article>
 
 
