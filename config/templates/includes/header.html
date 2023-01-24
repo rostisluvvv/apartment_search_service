@@ -1,27 +1,28 @@
 {% load static %}
+
 <header>
   <nav class="navbar navbar-light" style="background-color: lightskyblue">
     <div class="container">
       <a class="navbar-brand" href=" {% url 'main_page:index' %} ">
-        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-        <span style="color:blue">ЦИАН
+        <img src="{% static 'img/logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt="">
+        <span style="color:black">ЦИАН
       </a>
 
-      <a class="navbar-brand" href=" {% url 'main_page:add' %} ">
-
-        <span style="color:blue">ДОБАВИТЬ</span>
-      </a>
-
+      <div class="col-4" >
       {% for rubric in rubrics %}
-      <a class="navbar-brand" href=" {% url 'main_page:by_rubric' rubric.pk %} ">
-
-        <span style="color:blue">{{ rubric.name }}</span>
-      </a>
-
+        <a href="{% url 'main_page:by_rubric' rubric.pk %}" type="button" class="btn btn-primary  ">{{ rubric.name }}</a>
       {% endfor %}
+      </div>
+
+      <a href="{% url 'main_page:add' %}" type="button" class="btn btn-primary">Добавить объявление</a>
 
 
     </div>
   </nav>
 </header>
+
+
+
+
+
 
