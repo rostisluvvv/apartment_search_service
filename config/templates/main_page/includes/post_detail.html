@@ -1,32 +1,28 @@
 <p>
 <div class="shadow" style="width: 70rem; border-radius: 12px;">
-<div class="card" style="width: 70rem; border-radius: 12px;">
-
-  <div class="card-body">
-
-    <div class="col-4 re-3  ">
-      <img src="/main_page{{ apart.photo.url }}" width="200px" style="border-radius: 10px; float:left">
+  <div class="card" style="width: 70rem; border-radius: 12px;">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3 p-3 d-flex align-items-center">
+          <img src="/main_page{{ apart.photo.url }}" width="250px" style="border-radius: 10px; float:left">
+        </div>
+        <div class="col-7 d-grid gap-2 mx-1">
+          <h5 class="card-title">{{ apart.title }}</h5>
+          <h6 class="card-title">{{ apart.address }}</h6>
+          <h6 class="card-title">Площадь: {{ apart.apartment_area }} Кв.М.</h6>
+          <h5 class="card-title">Цена: {{ apart.price }} RUB</h5>
+          <p class="card-text">{{ apart.content|safe|truncatechars:200 }}</p>
+          <h6 class="card-title" style="color:grey">Дата публикации: {{ apart.published|date:"d.m.Y H:i:s" }}</h6>
+        </div>
+      </div>
     </div>
-
-    <div class="col-6 d-grid gap-2 mx-auto ">
-
-    <h5 class="card-title">{{ apart.title }}</h5>
-      <h6 class="card-title">{{ apart.address }}</h6>
-      <h6 class="card-title">Площадь: {{ apart.apartment_area }} Кв.М.</h6>
-      <h5 class="card-title">Цена: {{ apart.price }} RUB</h5>
-      <p class="card-text">{{ apart.content|safe|truncatechars:200 }}</p>
-      <h6 class="card-title" style="color:grey" >Дата публикации: {{ apart.published|date:"d.m.Y H:i:s" }}</h6>
-    </div>
-
-
-
-
-
-
   </div>
 </div>
-</div>
+</p>
 
+<!--
 
+          <a type="button" class="btn btn-primary col-md-4">{{ apart.contact }}</a>
+          <a type="button" class="btn btn-secondary col-md-4">Написать</a>
 
-
+!-->
